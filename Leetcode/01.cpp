@@ -26,13 +26,13 @@ void trap (int*height , int n){
 
 
   cout<<"water trapped = "<<waterTrapped<<endl;
-  return waterTrapped ;
+  return ;
 
 }
 int main(){
   int height[7]= {4,2,0,6,3,2,5};
   int n = sizeof(height)/sizeof(int);
-  trap{height, n};
+  trap(height, n);
   return 0;
 
 
