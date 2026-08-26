@@ -2,30 +2,31 @@
 #include <vector>
 using namespace std;
 
-class Solution {
+class Solution
+{
 public:
+    bool isSafe(vector<string> &board, int row, int col, int n)
+    {
 
-    bool isSafe(vector<string>& board, int row, int col, int n) {
-
-        
-        for (int i = 0; i < row; i++) {
+        for (int i = 0; i < row; i++)
+        {
             if (board[i][col] == 'Q')
                 return false;
         }
 
-        
         for (int i = row - 1, j = col - 1;
              i >= 0 && j >= 0;
-             i--, j--) {
+             i--, j--)
+        {
 
             if (board[i][j] == 'Q')
                 return false;
         }
 
-        
         for (int i = row - 1, j = col + 1;
              i >= 0 && j < n;
-             i--, j++) {
+             i--, j++)
+        {
 
             if (board[i][j] == 'Q')
                 return false;
@@ -34,11 +35,13 @@ public:
         return true;
     }
 
-    void solve(vector<string>& board, int row, int n) {
+    void solve(vector<string> &board, int row, int n)
+    {
 
-        
-        if (row == n) {
-            for (int i = 0; i < n; i++) {
+        if (row == n)
+        {
+            for (int i = 0; i < n; i++)
+            {
                 cout << board[i] << endl;
             }
 
@@ -46,25 +49,24 @@ public:
             return;
         }
 
-        
-        for (int col = 0; col < n; col++) {
+        for (int col = 0; col < n; col++)
+        {
 
-            if (isSafe(board, row, col, n)) {
+            if (isSafe(board, row, col, n))
+            {
 
-                
                 board[row][col] = 'Q';
 
-                
                 solve(board, row + 1, n);
 
-                
                 board[row][col] = '.';
             }
         }
     }
 };
 
-int main() {
+int main()
+{
 
     int n;
 

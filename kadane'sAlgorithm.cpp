@@ -4,15 +4,18 @@
 
 using namespace std;
 
-class Solution {
+class Solution
+{
 public:
-    struct Result {
+    struct Result
+    {
         int maxSum;
         int startIndex;
         int endIndex;
     };
 
-    Result kadane(const vector<int>& nums) {
+    Result kadane(const vector<int> &nums)
+    {
         int currentSum = nums[0];
         int maxSum = nums[0];
 
@@ -20,16 +23,21 @@ public:
         int end = 0;
         int tempStart = 0;
 
-        for (int i = 1; i < nums.size(); i++) {
+        for (int i = 1; i < nums.size(); i++)
+        {
 
-            if (currentSum + nums[i] < nums[i]) {
+            if (currentSum + nums[i] < nums[i])
+            {
                 currentSum = nums[i];
                 tempStart = i;
-            } else {
+            }
+            else
+            {
                 currentSum += nums[i];
             }
 
-            if (currentSum > maxSum) {
+            if (currentSum > maxSum)
+            {
                 maxSum = currentSum;
                 start = tempStart;
                 end = i;
@@ -40,7 +48,8 @@ public:
     }
 };
 
-int main() {
+int main()
+{
     vector<int> arr = {-2, 1, -3, 4, -1, 2, 1, -5, 4};
 
     Solution obj;

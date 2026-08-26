@@ -1,10 +1,10 @@
-class Solution {
+class Solution
+{
 public:
-
-    void solve(vector<int>& nums,
-               vector<bool>& used,
-               vector<int>& current,
-               vector<vector<int>>& ans)
+    void solve(vector<int> &nums,
+               vector<bool> &used,
+               vector<int> &current,
+               vector<vector<int>> &ans)
     {
         if (current.size() == nums.size())
         {
@@ -14,11 +14,10 @@ public:
 
         for (int i = 0; i < nums.size(); i++)
         {
-            
+
             if (used[i])
                 continue;
 
-            
             if (i > 0 && nums[i] == nums[i - 1] && !used[i - 1])
                 continue;
 
@@ -32,7 +31,8 @@ public:
         }
     }
 
-    vector<vector<int>> permuteUnique(vector<int>& nums) {
+    vector<vector<int>> permuteUnique(vector<int> &nums)
+    {
 
         sort(nums.begin(), nums.end());
 

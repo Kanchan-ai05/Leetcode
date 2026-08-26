@@ -1,27 +1,32 @@
 #include <iostream>
 using namespace std;
 
-struct ListNode {
+struct ListNode
+{
     int val;
-    ListNode* next;
+    ListNode *next;
 
-    ListNode(int x) {
+    ListNode(int x)
+    {
         val = x;
         next = nullptr;
     }
 };
 
-class Solution {
+class Solution
+{
 public:
-    ListNode* rotateRight(ListNode* head, int k) {
+    ListNode *rotateRight(ListNode *head, int k)
+    {
 
         if (!head || !head->next || k == 0)
             return head;
 
         int n = 1;
-        ListNode* tail = head;
+        ListNode *tail = head;
 
-        while (tail->next) {
+        while (tail->next)
+        {
             tail = tail->next;
             n++;
         }
@@ -35,7 +40,8 @@ public:
 
         int steps = n - k;
 
-        while (steps--) {
+        while (steps--)
+        {
             tail = tail->next;
         }
 
@@ -46,6 +52,7 @@ public:
     }
 };
 
-int main() {
+int main()
+{
     // testing code goes here
 }
